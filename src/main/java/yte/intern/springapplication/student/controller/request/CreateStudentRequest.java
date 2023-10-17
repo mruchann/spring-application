@@ -23,8 +23,6 @@ public record CreateStudentRequest(
         String studentID
 ) {
         public Student toStudent() {
-                return new Student(
-                        name, surname, email, nationalID, studentID
-                );
+                return new Student(name, surname, email, nationalID, studentID);
         }
 }

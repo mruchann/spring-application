@@ -1,5 +1,6 @@
 package yte.intern.springapplication.student.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import yte.intern.springapplication.common.response.MessageResponse;
@@ -20,5 +21,10 @@ public class StudentService {
                 "Student has been created successfully!!!",
                 MessageType.SUCCESS
         );
+    }
+
+    public Student findStudentById(Long id) {
+        return studentRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
     }
 }

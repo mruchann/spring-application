@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import yte.intern.springapplication.common.BaseEntity;
+import yte.intern.springapplication.student.controller.response.CreateStudentResponse;
 
 @Entity
 @NoArgsConstructor
@@ -20,4 +21,8 @@ public class Student extends BaseEntity {
     private String email;
     private String nationalID;
     private String studentID;
+
+    public CreateStudentResponse toCreateStudentResponse() {
+        return new CreateStudentResponse(name, surname, email, nationalID, studentID);
+    }
 }
